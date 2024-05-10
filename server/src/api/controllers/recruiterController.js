@@ -111,7 +111,7 @@ const forgotPassword = async (req, res) => {
     userData.resetToken = resetToken;
     userData.resetTokenExpires = Date.now() + 3600000;
     await userData.save();
-    const resetLink = `http://localhost:3000/recruiter/${resetToken}`;
+    const resetLink = `https://talenttrove.live/recruiter/${resetToken}`;
 
     const mailOptions = {
       from: "mr0248974@gmail.com",
