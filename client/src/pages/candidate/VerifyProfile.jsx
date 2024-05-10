@@ -40,7 +40,7 @@ const VerifyProfile = () => {
   };
   const handlePreview = () => {
     if (formData.resumeOrCv) {
-      window.open(`http://localhost:3001/${formData.resumeOrCv}`, "_blank");
+      window.open(`https://talenttrove-9jlw.onrender.com/${formData.resumeOrCv}`, "_blank");
     } else {
       alert("No resume uploaded");
     }
