@@ -20,7 +20,7 @@ const ChatPage = () => {
   const [recruiters, setRecruiters] = useState([]);
 
   useEffect(() => {
-    const newSocket = io(`http://localhost:3001`);
+    const newSocket = io(`https://talenttrove-9jlw.onrender.com`);
     setSocket(newSocket);
 
     newSocket.on("connect", () => {
