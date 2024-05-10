@@ -71,7 +71,7 @@ function CandidateDetails() {
   const handleDownloadResume = () => {
     if (applicantDetails.applicantDetails.resumeOrCv) {
       window.open(
-        `http://localhost:3001/${applicantDetails.applicantDetails.resumeOrCv}`,
+        `https://talenttrove-9jlw.onrender.com/${applicantDetails.applicantDetails.resumeOrCv}`,
         "_blank"
       );
     } else {
