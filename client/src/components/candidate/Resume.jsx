@@ -50,7 +50,7 @@ const Resume = ({ onResumeChange }) => {
           <a
             href={
               updatedResume
-                ? `http://localhost:3001/${resume}`
+                ? `https://talenttrove-9jlw.onrender.com/${resume}`
                 : URL.createObjectURL(resume)
             }
             target="_blank"
