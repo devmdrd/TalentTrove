@@ -8,11 +8,21 @@ const Company = require("../models/companyModel");
 const verifyToken = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
+    console.log(token);
     if (!token) {
       return res.status(401).json({ error: "Unauthorized" });
     }
 
-    const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+    } catch (err) {
+      if (err.name === "TokenExpiredError") {
+        return res.status(401).json({ error: "Token expired" });
+      }
+      console.error(err);
+      return res.status(500).json({ error: "Internal Server Error" });
+    }
 
     let user;
     switch (decoded.role) {
@@ -28,7 +38,6 @@ const verifyToken = async (req, res, next) => {
       default:
         return res.status(401).json({ error: "Unauthorized" });
     }
-
     if (!user) {
       return res.status(401).json({ error: "Unauthorized" });
     }
