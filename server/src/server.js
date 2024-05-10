@@ -66,7 +66,7 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000/signin", // Redirect to login page on failure
+    failureRedirect: "https://talenttrove.live/signin", // Redirect to login page on failure
   }),
   async (req, res) => {
     try {
@@ -78,7 +78,7 @@ app.get(
       console.log("user", user);
       const token = generateToken(user);
       res.cookie("token", token);
-      res.redirect("http://localhost:3000"); // Redirect to home page on success
+      res.redirect("https://talenttrove.live"); // Redirect to home page on success
     } catch (err) {
       console.error(err);
       res.status(500).send("Internal Server Error");
