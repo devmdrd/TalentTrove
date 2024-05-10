@@ -23,10 +23,8 @@ function CandidateDetails() {
       try {
         const response = await getApplicantData(id);
         setApplicantDetails(response);
-        // Check if there is a status with 'in-progress'
-        const isInProgress = response.status.some(
-          (statusObj) => statusObj.status === "in-progress"
-        );
+         const applicationStatus = response.status.find(statusObj => statusObj._id === applicationId);
+         const isInProgress = applicationStatus ? applicationStatus.status === "in-progress" : false;
 
         setIsTestGiven(isInProgress);
       } catch (error) {
