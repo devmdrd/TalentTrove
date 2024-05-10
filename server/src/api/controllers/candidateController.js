@@ -1423,7 +1423,6 @@ const readNotifications = async (req, res) => {
 
 // logout
 const logout = async (req, res) => {
-  console.log("cvhbjnk");
   try {
     const candidateId = req.user._id;
     // Update candidate's online status to "offline"
