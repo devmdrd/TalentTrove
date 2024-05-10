@@ -60,7 +60,7 @@ const SigninForm = () => {
   const handleGoogleLogin = () => {
     try {
       // Directly initiate OAuth flow from the client-side
-      window.location.href = `http://localhost:3001/auth/google`;
+      window.location.href = `https://talenttrove-9jlw.onrender.com/auth/google`;
     } catch (error) {
       console.error("Error logging in with Google:", error);
     }
@@ -84,7 +84,7 @@ const SigninForm = () => {
             <p className="mt-2 text-left text-gray-500">
               Welcome back, please enter your details.
             </p>
-            <button
+{/*             <button
               className="-2 mt-8 flex items-center justify-center rounded-md border px-4 py-2 outline-none ring-gray-400 ring-offset-2 transition focus:ring-2 hover:border-transparent hover:bg-black hover:text-white"
               onClick={handleGoogleLogin} // Handle Google login when button is clicked
             >
@@ -94,7 +94,7 @@ const SigninForm = () => {
                 alt=""
               />
               Log in with Google
-            </button>
+            </button> */}
             <div className="relative mt-8 flex h-px place-items-center bg-gray-200">
               <div className="absolute left-1/2 h-6 w-14 -translate-x-1/2 bg-white text-center text-sm text-gray-500">
                 or
