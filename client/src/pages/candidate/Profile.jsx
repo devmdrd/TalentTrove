@@ -181,7 +181,7 @@ const Profile = () => {
                     ) : (
                       <img
                         className="h-20 w-20 rounded-full mx-auto"
-                        src={`http://localhost:3001/${updatedProfilePic}`}
+                        src={`https://talenttrove-9jlw.onrender.com/${updatedProfilePic}`}
                         alt="Profile Picture"
                       />
                     )}
