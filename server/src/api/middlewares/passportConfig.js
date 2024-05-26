@@ -18,7 +18,6 @@ passport.use(
           // Redirect to login page if account doesn't exist
           return done(null, false, { message: "Account not found" });
         }
-        console.log(user)
         return done(null, user);
       } catch (err) {
         return done(err, null);
