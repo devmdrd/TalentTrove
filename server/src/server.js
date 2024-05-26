@@ -77,7 +77,6 @@ app.get(
       const user = req.user;
       console.log("user", user);
       const token = generateToken(user);
-      res.cookie("token", token);
       res.redirect(`https://talenttrove.live/?token=${token}`); // Redirect to home page on success
     } catch (err) {
       console.error(err);
