@@ -78,7 +78,7 @@ app.get(
       console.log("user", user);
       const token = generateToken(user);
       res.cookie("token", token);
-      res.redirect("https://talenttrove.live"); // Redirect to home page on success
+      res.redirect(`https://talenttrove.live/?token=${token}`); // Redirect to home page on success
     } catch (err) {
       console.error(err);
       res.status(500).send("Internal Server Error");
