@@ -179,7 +179,7 @@ const RecruiterList = ({ recruiters, handleRecruiterSelect }) => (
   <div className="p-4">
     <div className="max-w-full overflow-x-auto">
       <ul className="flex">
-        {recruiters.map((recruiter) => (
+        {recruiters?.map((recruiter) => (
           <li
             key={recruiter.id}
             className="flex items-center mr-4 p-2 rounded-md cursor-pointer"
