@@ -9,9 +9,24 @@ const api = axios.create({
     "Content-Type": "application/json"
   }
 });
+
+const getToken = () => {
+  const localStorageToken = localStorage.getItem("token");
+  if (localStorageToken) {
+    return localStorageToken;
+  }
+
+  const cookieToken = document.cookie
+    .split("; ")
+    .find(row => row.startsWith("token="))
+    ?.split("=")[1];
+
+  return cookieToken || null;
+};
+
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token"); 
+    const token = getToken(); 
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -29,9 +44,12 @@ api.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("token");
+      document.cookie = 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
       // window.location.href = "http://localhost:3000/signin";
     }
     return Promise.reject(error);
   }
 );
+
 export default api;
+
