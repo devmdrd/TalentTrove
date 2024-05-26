@@ -61,9 +61,9 @@ function Header() {
                   <FiUser className="h-6 w-6 cursor-pointer" />
                 </Link>
               </li>
-              <li>
+{/*               <li>
                 <FiVideo className="h-6 w-6 text-white cursor-pointer" onClick={handleMeet} />
-              </li>
+              </li> */}
               <li onClick={handleLogout}>
                 <FiLogOut className="h-6 w-6 text-white cursor-pointer" />
               </li>
