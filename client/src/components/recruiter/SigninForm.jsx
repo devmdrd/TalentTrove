@@ -7,8 +7,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SigninForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("mr0248974@gmail.com");
+  const [password, setPassword] = useState("company");
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
