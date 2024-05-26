@@ -6,8 +6,17 @@ import BrandsGrid from "../../components/candidate/BrandsGrid";
 import Features from "../../components/candidate/Features";
 import Footer from "../../components/candidate/Footer";
 import bannerImage from "../../assets/banner.png";
+import { setToken } from "../../features/auth/candidateSlice";
+import { useDispatch } from "react-redux";
 
 const Home = () => {
+  const dispatch = useDispatch();
+  const urlParams = new URLSearchParams(window.location.search);
+  const GoogleToken = urlParams.get("token");
+
+  if (GoogleToken) {
+    dispatch(setToken(GoogleToken));
+  }
   const { token } = useSelector((state) => state.candidateAuth);
 
   return (
