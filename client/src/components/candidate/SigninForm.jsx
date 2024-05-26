@@ -27,9 +27,9 @@ const SigninForm = () => {
     }
   }, [registrationSuccess]);
 
-  const [credentials, setCredentials] = useState({
-    email: "",
-    password: "",
+   const [credentials, setCredentials] = useState({
+    email: 'mr0248974@gmail.com',
+    password: 'Rashid@2002',
   });
   const handleChange = (e) => {
     setCredentials({
