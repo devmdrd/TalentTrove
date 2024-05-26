@@ -13,9 +13,7 @@ const Home = () => {
   const dispatch = useDispatch();
   const urlParams = new URLSearchParams(window.location.search);
   const GoogleToken = urlParams.get("token");
-  console.log("GoogleToken outside", GoogleToken)
   if (GoogleToken) {
-    console.log("GoogleToken inside", GoogleToken)
     dispatch(setToken(GoogleToken));
   }
   const { token } = useSelector((state) => state.candidateAuth);
