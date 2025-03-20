@@ -24,7 +24,7 @@ To set up the project locally, follow these steps:
 
 ### 1️⃣ Clone the Repository  
 ```sh  
-git clone **https://github.com/devmdrd/TalentTrove.git**
+git clone https://github.com/devmdrd/TalentTrove.git
 cd talenttrove  
 ```
 
