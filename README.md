@@ -6,8 +6,8 @@ TalentTrove is a job portal designed to connect job seekers with their ideal car
 🔗 [TalentTrove Live](https://talenttrove.live/)  
 
 ## 📌 Features  
-- 🌍 **Job Listings** – Browse through various job opportunities.  
-- 🔍 **Search & Filter** – Easily find jobs based on category, location, and skills.  
+- 🌍 **Job Listings** – Browse through various job posts.  
+- 🔍 **Search & Filter** – Easily find jobs based on company, location, and skills.  
 - 📝 **Apply Online** – Submit applications directly through the portal.  
 - 👥 **Employer Dashboard** – Companies can post jobs and manage applicants.  
 - 📊 **Analytics & Insights** – Track job postings and candidate engagement.  
@@ -17,7 +17,7 @@ TalentTrove is a job portal designed to connect job seekers with their ideal car
 - **Backend**: Node.js, Express.js  
 - **Database**: MongoDB  
 - **Authentication**: JWT (JSON Web Tokens)  
-- **Hosting**: Vercel / Netlify (Frontend), Render / AWS (Backend)  
+- **Hosting**: Vercel (Frontend & Backend)  
 
 ## 🏗️ Installation & Setup  
 To set up the project locally, follow these steps:  
@@ -26,7 +26,7 @@ To set up the project locally, follow these steps:
 ```sh  
 git clone https://github.com/your-username/talenttrove.git  
 cd talenttrove  
-```  
+```
 
 ### 2️⃣ Install Dependencies  
 #### Frontend:  
@@ -40,34 +40,27 @@ npm start
 cd server  
 npm install  
 npm run dev  
-```  
-
-### 3️⃣ Environment Variables  
-Create a `.env` file in the `server` directory and configure the following:  
 ```
-MONGO_URI=your_mongodb_connection_string  
-JWT_SECRET=your_jwt_secret  
-PORT=5000  
-```  
 
-### 4️⃣ Run the Project  
+### 3️⃣ Run the Project  
 Start both frontend and backend servers:  
 ```sh  
 npm run dev  
 ```  
 Now, visit `http://localhost:3000/` in your browser.  
 
-## 🚀 Deployment  
-- **Frontend Deployed on**: [Vercel / Netlify](https://talenttrove.live/)  
-- **Backend Deployed on**: Render / AWS / DigitalOcean  
+## 🚀 Deployment on Vercel  
+### 1️⃣ Deploy Frontend on Vercel  
+- Push your project to GitHub.  
+- Go to [Vercel](https://vercel.com/) and import your **frontend** repository.  
+- Set the necessary environment variables.  
+- Deploy and get your live frontend link.  
 
-## 📩 Contact  
-For any queries or issues, feel free to reach out:  
-
-- **Email**: [your-email@example.com](mailto:your-email@example.com)  
-- **GitHub Issues**: [Report Issues](https://github.com/your-username/talenttrove/issues)  
-- **LinkedIn**: [Your Profile](https://linkedin.com/in/yourprofile)  
+### 2️⃣ Deploy Backend on Vercel  
+- Go to [Vercel](https://vercel.com/) and import your **backend** repository.  
+- Add the required environment variables (`MONGO_URI`, `JWT_SECRET`, etc.).  
+- Deploy and get your live backend API URL.  
 
 ---  
 
-💡 **Contributions are welcome!** Feel free to fork the repo and submit a PR. Happy coding! 🎉  
+💡 **Contributions are welcome!** Feel free to fork the repo and submit a PR. Happy coding! 🎉
