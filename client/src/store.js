@@ -1,13 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-import candidateAuthReducer from "./features/auth/candidateSlice";
-import recruiterAuthReducer from "./features/auth/recruiterSlice";
-import adminAuthReducer from "./features/auth/adminSlice";
+import { configureStore } from '@reduxjs/toolkit';
+import authReducer from './features/auth/authSlice';
 
 const store = configureStore({
   reducer: {
-    candidateAuth: candidateAuthReducer,
-    recruiterAuth: recruiterAuthReducer,
-    adminAuth: adminAuthReducer,
+    auth: authReducer, 
   },
 });
-export default store;
+
+export { store };

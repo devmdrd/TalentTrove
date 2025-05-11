@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "https://talenttrove-9jlw.onrender.com/api";
-
+export const BASE_URL = "http://localhost:3001/api";
+export const STATIC_URL = "http://localhost:3001";
 
 const api = axios.create({
   baseURL: BASE_URL,
@@ -10,29 +10,26 @@ const api = axios.create({
     "Content-Type": "application/json"
   }
 });
+
 api.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token"); 
+    const token = localStorage.getItem("token");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 api.interceptors.response.use(
-  (response) => {
-    return response;
-  },
+  (response) => response,
   (error) => {
-    if (error.response && error.response.status === 401) {
+    if (error.response?.status === 401) {
       localStorage.removeItem("token");
-      // window.location.href = "http://localhost:3000/signin";
     }
     return Promise.reject(error);
   }
 );
+
 export default api;

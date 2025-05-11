@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import CandidateRoutes from "./routes/CandidateRoutes";
-import RecruiterRoutes from "./routes/RecruiterRoutes";
+import UserRoutes from "./routes/UserRoutes";
+import CompanyRoutes from "./routes/CompanyRoutes";
 import AdminRoutes from "./routes/AdminRoutes";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/*" element={<CandidateRoutes />} />
-        <Route path="/recruiter/*" element={<RecruiterRoutes />} />
+        <Route path="/*" element={<UserRoutes />} />
+        <Route path="/company/*" element={<CompanyRoutes />} />
         <Route path="/admin/*" element={<AdminRoutes />} />
       </Routes>
     </Router>
