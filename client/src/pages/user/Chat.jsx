@@ -98,12 +98,12 @@ const ChatPage = () => {
   return (
     <>
       <Header />
-      <div className="h-screen flex justify-center items-center bg-gray-100">
-        <div className="w-full max-w-lg flex flex-col bg-white border border-gray-300 rounded-lg overflow-hidden h-4/5">
+      <div className="h-screen flex justify-center items-center bg-gray-50">
+        <div className="w-full max-w-4xl flex flex-col bg-white rounded-xl shadow-lg overflow-hidden h-[85vh]">
           {!companyId ? (
             <>
-              <div className="bg-green-500 text-white p-4 flex items-center justify-between">
-                <h2 className="text-lg font-semibold">Chats</h2>
+              <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white p-4 flex items-center justify-between shadow-md">
+                <h2 className="text-xl font-semibold">Messages</h2>
               </div>
               <ChatList
                 companies={companies}
