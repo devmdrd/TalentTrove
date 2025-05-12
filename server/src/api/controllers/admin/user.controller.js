@@ -24,7 +24,7 @@ const manageUser = async (req, res) => {
 
 const listUsers = async (req, res) => {
   try {
-    const users = await User.find({role: "user"});
+    const users = await User.find({role: "candidate"});
 
     res.status(200).json({
       success: true,

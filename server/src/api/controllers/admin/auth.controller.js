@@ -34,7 +34,14 @@ const signin = async (req, res) => {
 
 const logout = async (req, res) => {
   try {
-    await User.updateOne({ _id: req.user._id }, { online: false });
+    const adminUser = await User.findOne({ role: 'admin' });
+
+    if (!adminUser) {
+      return res.status(404).json({ success: false, message: "Admin user not found." });
+    }
+
+    await User.updateOne({ _id: adminUser._id }, { online: false });
+
     res.status(200).json({ success: true, message: "Admin logged out successfully." });
   } catch (error) {
     console.error("Logout error:", error);

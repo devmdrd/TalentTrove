@@ -1,5 +1,11 @@
 import React from "react";
-import { FaFacebook, FaGithub, FaReddit, FaTwitter, FaLinkedin } from "react-icons/fa"; 
+import {
+  FaFacebook,
+  FaGithub,
+  FaReddit,
+  FaTwitter,
+  FaLinkedin,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -56,66 +62,39 @@ const Footer = () => {
             <div className="grid grid-cols-2 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               <div>
                 <h3 className="text-lg font-semibold uppercase">About</h3>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Company
                 </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Community
                 </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Careers
                 </a>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold uppercase">Blog</h3>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Tech
                 </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Music
                 </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Videos
                 </a>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold uppercase">Products</h3>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Mega Cloud
                 </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Aperion UI
                 </a>
-                <a
-                  href="#"
-                  className="block mt-2 text-sm text-gray-300 hover:underline"
-                >
+                <a href="#" className="block mt-2 text-sm text-gray-300 hover:underline">
                   Meraki UI
                 </a>
               </div>

@@ -48,7 +48,6 @@ const UserDetails = () => {
 
   return (
     <div className="max-w-7xl mx-auto py-8">
-      {/* Search bar */}
       <div className="mb-4 relative">
         <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
           <FiSearch className="text-gray-400" />
