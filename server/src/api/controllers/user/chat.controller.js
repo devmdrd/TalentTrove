@@ -32,6 +32,7 @@ exports.sendMessage = async (req, res) => {
   try {
     const { candidateId, companyId } = req.params;
     const { senderId, content, files = [] } = req.body;
+    
     const message = {
       senderId,
       content,
@@ -39,6 +40,7 @@ exports.sendMessage = async (req, res) => {
       timestamp: new Date(),
       seenBy: [senderId]
     };
+
     let chat = await Chat.findOne({ candidateId, companyId });
     if (!chat) {
       const candidate = await User.findById(candidateId);
@@ -50,6 +52,7 @@ exports.sendMessage = async (req, res) => {
     }
     chat.messages.push(message);
     chat.updatedAt = new Date();
+
     await chat.save();
     const newMessage = chat.messages[chat.messages.length - 1];
     res.status(200).json(newMessage);
@@ -58,4 +61,3 @@ exports.sendMessage = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
-

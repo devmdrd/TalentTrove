@@ -10,7 +10,6 @@ import ChatWindow from '../../components/company/chat/ChatWindow';
 const ChatPage = () => {
   const { companyId, candidateId } = useParams();
   const navigate = useNavigate();
-
   const [candidates, setCandidates] = useState([]);
   const [selectedUser, setSelectedUser] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -18,16 +17,24 @@ const ChatPage = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [socket, setSocket] = useState(null);
   const [loading, setLoading] = useState(true);
-
-  const fileInputRef = useRef(null);
   const messageEndRef = useRef(null);
 
   useEffect(() => {
     const newSocket = io(STATIC_URL);
     setSocket(newSocket);
-    newSocket.on('message', (message) => {
-      setMessages(prev => [...prev, message]);
+
+    newSocket.on("receiveMessage", (message) => {
+      setMessages((prev) => {
+        const exists = prev.some(
+          (m) =>
+            m.content === message.content &&
+            m.timestamp === message.timestamp &&
+            m.senderId === message.senderId
+        );
+        return exists ? prev : [...prev, message];
+      });
     });
+
     return () => newSocket.disconnect();
   }, []);
 
@@ -39,12 +46,12 @@ const ChatPage = () => {
         if (candidateId) {
           setSelectedUser(res.data.candidateId);
           setMessages(res.data.messages || []);
-          socket?.emit('joinRoom', candidateId);
+          const roomId = `chat_${candidateId}_${companyId}`;
+          socket?.emit('joinRoom', roomId);
         } else {
           setCandidates(res.data);
         }
       } catch (error) {
-        console.error('Error fetching chat data:', error);
       } finally {
         setLoading(false);
       }
@@ -65,33 +72,26 @@ const ChatPage = () => {
   };
 
   const handleSendMessage = async () => {
-    if (!inputMessage.trim() && !fileInputRef.current?.files?.length) return;
+    if (!inputMessage.trim()) return;
+
     const messageData = {
       senderId: companyId,
+      recipientId: candidateId,
       content: inputMessage.trim(),
-      files: fileInputRef.current?.files?.length > 0 
-        ? Array.from(fileInputRef.current.files).map(file => file.name)
-        : []
+      timestamp: new Date().toISOString(),
     };
+
     try {
       await api.post(`/company/${companyId}/chat/${candidateId}/messages`, messageData);
+      const roomId = `chat_${candidateId}_${companyId}`;
+      socket?.emit("sendMessage", { roomId, message: messageData });
+      setMessages((prev) => [...prev, messageData]);
       setInputMessage('');
-      if (fileInputRef.current) fileInputRef.current.value = '';
-    } catch (error) {
-      console.error('Error sending message:', error);
-    }
+    } catch (error) {}
   };
 
   const handleEmojiClick = (emoji) => {
-    setInputMessage(prev => prev + emoji.emoji);
-  };
-
-  const handleFileUpload = (e) => {
-    if (e.target.files.length > 0) {
-      const files = Array.from(e.target.files);
-      const fileNames = files.map(file => file.name).join(', ');
-      setInputMessage(prev => prev ? `${prev} [Files: ${fileNames}]` : `[Files: ${fileNames}]`);
-    }
+    setInputMessage((prev) => prev + emoji.emoji);
   };
 
   return (
@@ -104,10 +104,10 @@ const ChatPage = () => {
               <div className="bg-green-500 text-white p-4 flex items-center justify-between">
                 <h2 className="text-lg font-semibold">Chats</h2>
               </div>
-              <ChatList 
-                candidates={candidates} 
+              <ChatList
+                candidates={candidates}
                 loading={loading}
-                onSelectCandidate={handleSelectCandidate} 
+                onSelectCandidate={handleSelectCandidate}
               />
             </>
           ) : (
@@ -122,8 +122,8 @@ const ChatPage = () => {
               onSendMessage={handleSendMessage}
               onEmojiClick={handleEmojiClick}
               toggleEmojiPicker={() => setShowEmojiPicker(!showEmojiPicker)}
-              onFileUpload={handleFileUpload}
               messageEndRef={messageEndRef}
+              currentUserId={companyId}
             />
           )}
         </div>
