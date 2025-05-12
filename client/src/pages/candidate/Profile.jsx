@@ -2,15 +2,15 @@ import React, { useState, useEffect } from "react";
 import api from "../../utils/axios";
 import { toast, ToastContainer } from "react-toastify"; 
 import "react-toastify/dist/ReactToastify.css";
-import ProfileCard from "../../components/user/profile/ProfileCard";
-import ProfileTabs from "../../components/user/profile/ProfileTabs";
-import OverviewSection from "../../components/user/profile/OverviewSection";
-import ResumeSection from "../../components/user/profile/ResumeSection";
-import ProfileSection from "../../components/user/profile/ProfileSection";
+import ProfileCard from "../../components/candidate/profile/ProfileCard";
+import ProfileTabs from "../../components/candidate/profile/ProfileTabs";
+import OverviewSection from "../../components/candidate/profile/OverviewSection";
+import ResumeSection from "../../components/candidate/profile/ResumeSection";
+import ProfileSection from "../../components/candidate/profile/ProfileSection";
 import { sectionConfigs } from "../../config/profileSectionsConfig.js";
 
-import Header from "../../components/user/Header.jsx";
-import Footer from "../../components/user/Footer.jsx";
+import Header from "../../components/candidate/Header.jsx";
+import Footer from "../../components/candidate/Footer.jsx";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("Overview");

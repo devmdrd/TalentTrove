@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import UserRoutes from "./routes/UserRoutes";
+import UserRoutes from "./routes/CandidateRoutes";
 import CompanyRoutes from "./routes/CompanyRoutes";
 import AdminRoutes from "./routes/AdminRoutes";
 

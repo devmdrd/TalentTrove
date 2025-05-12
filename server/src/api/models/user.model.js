@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
   mobile: { type: String },
   role: {
     type: String,
-    enum: ["admin", "user", "company"],
+    enum: ["admin", "candidate", "company"],
     default: "company",
   },
   isBlocked: { type: Boolean, default: false },

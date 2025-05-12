@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Header from "../../components/user/Header";
+import Header from "../../components/candidate/Header";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import FAQ from "../../components/user/FAQ";
-import BrandsGrid from "../../components/user/BrandsGrid";
-import Features from "../../components/user/Features";
-import Footer from "../../components/user/Footer";
+import FAQ from "../../components/candidate/FAQ";
+import BrandsGrid from "../../components/candidate/BrandsGrid";
+import Features from "../../components/candidate/Features";
+import Footer from "../../components/candidate/Footer";
 import bannerImage from "../../assets/banner.png";
 import { loginSuccess } from "../../features/auth/authSlice";
 

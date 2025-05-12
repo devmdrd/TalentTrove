@@ -5,12 +5,12 @@ const router = express.Router();
 const verifyToken = require('../middlewares/jwt.middleware.js');
 const upload = require('../middlewares/multer.middleware.js'); 
 
-const { googleCallback, signup, resendOtp, verifyOTP, signin, forgotPassword, resetPassword, logout } = require("../controllers/user/auth.controller.js");
-const { getProfile, addToProfile, updateTheProfile, deleteFromProfile } = require("../controllers/user/profile.controller.js");
-const { getJobs, applyJob, saveJob, appliedJobs, savedJobs } = require("../controllers/user/job.controller.js");
-const { getSkillTestByApplication, submitSkillTest } = require("../controllers/user/skillTest.controller.js");
-const { markNotificationAsRead, getUnreadNotifications } = require("../controllers/user/notification.controller.js");
-const { getChats, getMessagesForCompany, sendMessage } = require("../controllers/user/chat.controller.js");
+const { googleCallback, signup, resendOtp, verifyOTP, signin, forgotPassword, resetPassword, logout } = require("../controllers/candidate/auth.controller.js");
+const { getProfile, addToProfile, updateTheProfile, deleteFromProfile } = require("../controllers/candidate/profile.controller.js");
+const { getJobs, applyJob, saveJob, appliedJobs, savedJobs } = require("../controllers/candidate/job.controller.js");
+const { getSkillTestByApplication, submitSkillTest } = require("../controllers/candidate/skillTest.controller.js");
+const { markNotificationAsRead, getUnreadNotifications } = require("../controllers/candidate/notification.controller.js");
+const { getChats, getMessagesForCompany, sendMessage } = require("../controllers/candidate/chat.controller.js");
 
 router.use(express.urlencoded({ extended: false }));
 

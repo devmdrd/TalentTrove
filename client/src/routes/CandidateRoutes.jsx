@@ -1,19 +1,19 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Home from "../pages/user/Home";
-import Signin from "../pages/user/Signin";
-import Signup from "../pages/user/Signup";
-import ForgotPassword from "../pages/user/ForgotPassword";
-import ResetPassword from "../pages/user/ResetPassword";
-import OTPForm from "../pages/user/OTPForm";
+import Home from "../pages/candidate/Home";
+import Signin from "../pages/candidate/Signin";
+import Signup from "../pages/candidate/Signup";
+import ForgotPassword from "../pages/candidate/ForgotPassword";
+import ResetPassword from "../pages/candidate/ResetPassword";
+import OTPForm from "../pages/candidate/OTPForm";
 
-import Profile from "../pages/user/Profile";
-import JobFeed from "../pages/user/Jobs";
-import SavedJobs from "../pages/user/SavedJobs";
-import MyJobs from "../pages/user/MyJobs";
-import SkillTest from "../pages/user/SkillTest";
-import ChatPage from "../pages/user/Chat";
+import Profile from "../pages/candidate/Profile";
+import JobFeed from "../pages/candidate/Jobs";
+import SavedJobs from "../pages/candidate/SavedJobs";
+import MyJobs from "../pages/candidate/MyJobs";
+import SkillTest from "../pages/candidate/SkillTest";
+import ChatPage from "../pages/candidate/Chat";
 
 import NotFound from "../components/common/NotFound";
 import ProtectedRoute from "../helpers/ProtectedRoute";

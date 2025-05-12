@@ -55,7 +55,7 @@ const signup = async (req, res) => {
       mobile,
       email,
       password: hashedPassword,
-      role: "user",
+      role: "candidate",
       otp: otpCode,
       otpCreatedAt: new Date(),
       otpExpiry: new Date(Date.now() + 1 * 60 * 1000),
@@ -148,6 +148,14 @@ const signin = async (req, res) => {
       success: true,
       message: "Login successful",
       token,
+      user: {
+        _id: user._id,
+        email: user.email,
+        name: user.name,
+        role: user.role,
+        online: user.online,
+        mobile: user.mobile
+      }
     });
   } catch (error) {
     console.error("Signin error:", error);

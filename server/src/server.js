@@ -9,7 +9,7 @@ const { Server } = require("socket.io");
 require("./config/db.config.js");
 
 const passport = require("../src/config/passport.config.js");
-const userRouter = require("./api/routes/user.route.js");
+const userRouter = require("./api/routes/candidate.route.js");
 const recruiterRouter = require("../src/api/routes/company.route.js");
 const adminRouter = require("../src/api/routes/admin.route.js");
 

@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import io from 'socket.io-client';
 import api, { STATIC_URL } from '../../utils/axios';
-import Header from '../../components/user/Header';
-import Footer from '../../components/user/Footer';
-import ChatList from '../../components/user/chat/ChatList';
-import ChatWindow from '../../components/user/chat/ChatWindow';
+import Header from '../../components/candidate/Header';
+import Footer from '../../components/candidate/Footer';
+import ChatList from '../../components/candidate/chat/ChatList';
+import ChatWindow from '../../components/candidate/chat/ChatWindow';
 
 const ChatPage = () => {
   const { candidateId, companyId } = useParams();

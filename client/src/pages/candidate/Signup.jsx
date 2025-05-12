@@ -10,8 +10,8 @@ import {
   FaGoogle,
   FaArrowRight,
 } from "react-icons/fa";
-import Header from "../../components/user/Header";
-import Footer from "../../components/user/Footer";
+import Header from "../../components/candidate/Header";
+import Footer from "../../components/candidate/Footer";
 
 const Signup = () => {
   const navigate = useNavigate();

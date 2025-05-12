@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "../../components/user/Header";
-import Footer from "../../components/user/Footer";
+import Header from "../../components/company/Header";
+import Footer from "../../components/company/Footer";
 import api from "../../utils/axios";
 
 const ResetPassword = () => {

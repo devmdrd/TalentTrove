@@ -3,8 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../../utils/axios";
-import Header from "../../components/user/Header";
-import Footer from "../../components/user/Footer";
+import Header from "../../components/candidate/Header";
+import Footer from "../../components/candidate/Footer";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");

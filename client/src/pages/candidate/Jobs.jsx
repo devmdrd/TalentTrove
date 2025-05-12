@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../components/user/Header";
-import Footer from "../../components/user/Footer";
+import Header from "../../components/candidate/Header";
+import Footer from "../../components/candidate/Footer";
 import api from "../../utils/axios";
 import { motion } from "framer-motion";
-import SearchHero from "../../components/user/jobs/SearchHero";
-import Filters from "../../components/user/jobs/Filters";
-import MobileFilters from "../../components/user/jobs/MobileFilters";
-import JobCard from "../../components/user/jobs/JobCard";
-import Pagination from "../../components/user/jobs/Pagination";
+import SearchHero from "../../components/candidate/jobs/SearchHero";
+import Filters from "../../components/candidate/jobs/Filters";
+import MobileFilters from "../../components/candidate/jobs/MobileFilters";
+import JobCard from "../../components/candidate/jobs/JobCard";
+import Pagination from "../../components/candidate/jobs/Pagination";
 import { FiFilter } from 'react-icons/fi';
 
 const Jobs = () => {

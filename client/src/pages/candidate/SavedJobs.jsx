@@ -3,9 +3,9 @@ import api from "../../utils/axios";
 import { FaBookmark, FaRegBookmark, FaRegClock, FaRegTrashAlt, FaExternalLinkAlt } from 'react-icons/fa';
 import { MdOutlineWork, MdLocationOn, MdBusiness } from 'react-icons/md';
 import { AiOutlineDollarCircle, AiOutlineFieldTime } from 'react-icons/ai';
-import Header from '../../components/user/Header';
-import Footer from '../../components/user/Footer';
-import ApplyJobModal from '../../components/user/jobs/ApplyJobModal';
+import Header from '../../components/candidate/Header';
+import Footer from '../../components/candidate/Footer';
+import ApplyJobModal from '../../components/candidate/jobs/ApplyJobModal';
 
 const SavedJobs = () => {
   const [savedJobs, setSavedJobs] = useState([]);
