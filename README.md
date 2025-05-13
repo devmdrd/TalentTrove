@@ -1,112 +1,182 @@
-# TalentTrove  
+# TalentTrove
+## 🚀 Live Demo
+🔗 [TalentTrove Live](https://talenttrove.online/)
 
-## 🚀 Live Demo  
-🔗 [TalentTrove Live](https://talenttrove.live/)  
+## 📌 Overview
+**TalentTrove** is a comprehensive job portal designed to connect job seekers with their ideal career opportunities. It provides an intuitive platform for job searching, recruitment, and talent acquisition with modern features and a seamless user experience.
 
-## 📌 Overview  
-**TalentTrove** is a job portal designed to connect job seekers with their ideal career opportunities. It provides an intuitive platform for job searching, recruitment, and talent acquisition.  
+## ✨ Features
+* 🌍 **Job Listings** – Browse through various job posts across different industries and locations
+* 🔍 **Advanced Search & Filter** – Easily find jobs based on company, location, experience level, and required skills
+* 📝 **Apply Online** – Submit applications directly through the portal with resume upload functionality
+* 👥 **Employer Dashboard** – Companies can post jobs, manage applicants, and track application status
+* 📊 **Analytics & Insights** – Track job postings, candidate engagement, and application metrics
+* 📧 **Email Notifications** – Automated email updates for application status changes and new job matches
+* 🔐 **Google Authentication** – Secure and convenient sign-in with Google account integration
+* 📱 **Responsive Design** – Optimized experience across desktop, tablet, and mobile devices
 
-## ✨ Features  
-- 🌍 **Job Listings** – Browse through various job posts.  
-- 🔍 **Search & Filter** – Easily find jobs based on company, location, and skills.  
-- 📝 **Apply Online** – Submit applications directly through the portal.  
-- 👥 **Employer Dashboard** – Companies can post jobs and manage applicants.  
-- 📊 **Analytics & Insights** – Track job postings and candidate engagement.  
+## 🛠️ Tech Stack
+* **Frontend:** React.js, Tailwind CSS
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB
+* **Authentication:** JWT (JSON Web Tokens), Google OAuth 2.0
+* **Email Service:** Nodemailer with Gmail SMTP
+* **Hosting:** Render (Frontend & Backend)
+* **CI/CD:** GitHub Actions
 
-## 🛠️ Tech Stack  
-- **Frontend:** React.js, Tailwind CSS  
-- **Backend:** Node.js, Express.js  
-- **Database:** MongoDB  
-- **Authentication:** JWT (JSON Web Tokens)  
-- **Hosting:** Vercel (Frontend & Backend)  
+## 🏗️ Installation & Setup
+To set up the project locally, follow these steps:
 
-## 🏗️ Installation & Setup  
-To set up the project locally, follow these steps:  
-
-### 1️⃣ Clone the Repository  
-```sh  
+### 1️⃣ Clone the Repository
+```sh
 git clone https://github.com/devmdrd/TalentTrove.git
 cd talenttrove  
 ```
 
-### 2️⃣ Install Dependencies  
-#### Frontend:  
-```sh  
+### 2️⃣ Install Dependencies
+#### Frontend:
+```sh
 cd client  
 npm install  
-npm start  
-```  
-#### Backend:  
-```sh  
+npm run dev 
+```
+
+#### Backend:
+```sh
 cd server  
 npm install  
+npm install nodemon --save-dev  # Install nodemon as dev dependency
 npm run dev  
 ```
 
-### 3️⃣ Run the Project  
-Start both frontend and backend servers:  
-```sh  
+### 3️⃣ Environment Variables
+Create `.env` files in both client and server directories:
+
+#### Client `.env`:
+```
+VITE_API_URL=http://localhost:5000/api
+VITE_GOOGLE_CLIENT_ID=your_google_client_id
+```
+
+#### Server `.env`:
+```
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret_key
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+EMAIL_USER=your_gmail_address
+EMAIL_PASS=your_gmail_app_password
+CLIENT_URL=http://localhost:3000
+```
+
+### 4️⃣ Run the Project
+Start both frontend and backend servers:
+```sh
+# In the client directory
+npm run dev
+
+# In the server directory
 npm run dev  
-```  
-Now, visit `http://localhost:3000/` in your browser.  
+```
+Now, visit `http://localhost:3000/` in your browser.
 
-## 🚀 Deployment on Vercel  
-### 1️⃣ Deploy Frontend on Vercel  
-- Push your project to GitHub.  
-- Go to [Vercel](https://vercel.com/) and import your **frontend** repository.  
-- Set the necessary environment variables.  
-- Deploy and get your live frontend link.  
+## 🚀 Deployment on Render
+### 1️⃣ Deploy Frontend on Render
+* Push your project to GitHub
+* Log in to [Render](https://render.com/) and create a new Web Service
+* Connect your GitHub repository
+* Select the following settings:
+  * **Name:** talenttrove-frontend (or your preferred name)
+  * **Environment:** Static Site
+  * **Build Command:** `cd client && npm install && npm run build`
+  * **Publish Directory:** `client/dist`
+* Add environment variables under the "Environment" tab
+* Click "Create Web Service"
 
-### 2️⃣ Deploy Backend on Vercel  
-- Go to [Vercel](https://vercel.com/) and import your **backend** repository.  
-- Add the required environment variables (`MONGO_URI`, `JWT_SECRET`, etc.).  
-- Deploy and get your live backend API URL.  
+### 2️⃣ Deploy Backend on Render
+* Create another Web Service on Render
+* Connect the same GitHub repository
+* Select the following settings:
+  * **Name:** talenttrove-api (or your preferred name)
+  * **Environment:** Node
+  * **Build Command:** `cd server && npm install`
+  * **Start Command:** `cd server && npm start`
+* Add all the required environment variables:
+  * `MONGO_URI`
+  * `JWT_SECRET`
+  * `GOOGLE_CLIENT_ID`
+  * `GOOGLE_CLIENT_SECRET`
+  * `EMAIL_USER`
+  * `EMAIL_PASS`
+  * `CLIENT_URL` (your frontend Render URL)
+* Click "Create Web Service"
 
-## 📂 Project Structure  
+## 📧 Email Service Configuration
+TalentTrove uses Nodemailer with Gmail SMTP for sending email notifications:
+
+### Setting up Gmail for Nodemailer:
+1. Enable 2-Step Verification for your Gmail account
+2. Generate an App Password:
+   * Go to your Google Account → Security → App passwords
+   * Select "Mail" as the app and "Other" as the device
+   * Use the generated 16-character password as your `EMAIL_PASS` in environment variables
+
+## 🔐 Google Authentication Setup
+To enable Google Sign-In functionality:
+
+1. Create a project in the [Google Cloud Console](https://console.cloud.google.com/)
+2. Set up OAuth 2.0 credentials:
+   * Configure the OAuth consent screen
+   * Create OAuth client ID credentials
+   * Add authorized JavaScript origins and redirect URIs
+3. Use the generated Client ID and Client Secret in your environment variables
+
+## 📂 Project Structure
 ```
 /TalentTrove
-│── /client           # Frontend source code
-│   │── /src          # React source directory
-│   │   │── /assets   # Static assets
-│   │   │── /components # Reusable components
-│   │   │── /features/auth # Authentication-related code
-│   │   │── /helpers  # Helper functions
-│   │   │── /pages    # Page components
-│   │   │── /routes   # Frontend routing
-│   │   │── /services # API services
-│   │   │── /utils    # Utility functions
-│   │   │── App.jsx   # Main App component
-│   │   │── main.jsx  # Application entry point
-│   │── .vscode       # VS Code settings
-│   │── index.html    # Main HTML file
-│   │── package.json  # Frontend dependencies
-│   │── tailwind.config.js # Tailwind CSS configuration
-│   │── vite.config.js # Vite configuration
-│── /server           # Backend source code
-│   │── /src          # API-related files
-│   │   │── /api      # API endpoints
+│── /client 
+│   │── /dist            # Production build files
+│   │── /node_modules
+│   │── /public          # Public assets
+│   │── /src             # React source directory
+│   │   │── /assets      # Static assets
+│   │   │── /components  # Reusable components
+│   │   │── /config      # Configuration files
+│   │   │── /features    # Feature-specific code
+│   │   │── /helpers     # Helper functions
+│   │   │── /pages       # Page components
+│   │   │── /routes      # Frontend routing 
+│   │   │── /utils       # Utility functions
+│   │   │── App.css      
+│   │   │── App.jsx      # Main App component
+│   │   │── Index.css    
+│   │   │── main.jsx     # Application entry point
+│   │   │── store.js     # Redux store configuration
+│   │── .eslintrc.cjs
+│   │── .gitignore       
+│   │── index.html       # Main HTML file
+│   │── package.json     # Frontend dependencies
+│   │── vite.config.js   # Vite configuration
+│── /server           
+│   │── /node_modules    
+│   │── /src             # Backend source code      
+│   │   │── /api         # API-related files
 │   │   │   │── /controllers  # Business logic controllers
 │   │   │   │── /middlewares  # Middleware functions
 │   │   │   │── /models       # Database models
 │   │   │   │── /public       # Public assets
 │   │   │   │── /routes       # API routes
 │   │   │   │── /services     # Backend services
-│   │   │── config            # Configuration files
-│   │   |── server.js         # Main backend server file
-│   │── package.json      # Backend dependencies
+│   │   │── /config      # Configuration files
+│   │   │── /utils       # Utility functions
+│   │   │── server.js    # Main backend server file
+│   │── .env             # Environment variables
+│   │── package.json     # Backend dependencies
+│   │── package-lock.json
 │── .gitignore           # Git ignore file
 │── README.md            # Project documentation
-```  
+```
 
----  
-
-## 🤝 Contributing  
-Contributions are welcome! Please follow these steps:  
-1. Fork the repository  
-2. Create a new branch (`feature-branch`)  
-3. Commit your changes  
-4. Push to your fork  
-5. Submit a pull request  
-
-## 📞 Contact  
-For any inquiries or support, reach out to [Muhammed Rashid](mailto:muhammedrashid@gmail.com).  
+## 📞 Contact
+For any inquiries or support, reach out to [Muhammed Rashid](mailto:mdrd.muhammedrashid@gmail.com).
