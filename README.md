@@ -50,24 +50,32 @@ npm run dev
 ```
 
 ### 3️⃣ Environment Variables
-Create `.env` files in both client and server directories:
-
-#### Client `.env`:
-```
-VITE_API_URL=http://localhost:5000/api
-VITE_GOOGLE_CLIENT_ID=your_google_client_id
-```
+Create `.env` files in server directory:
 
 #### Server `.env`:
 ```
-PORT=5000
-MONGO_URI=your_mongodb_connection_string
-JWT_SECRET=your_jwt_secret_key
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-EMAIL_USER=your_gmail_address
-EMAIL_PASS=your_gmail_app_password
-CLIENT_URL=http://localhost:3000
+# Port
+PORT=3001
+
+# Base URL
+BASE_URL=https://talenttrove-ivhm.onrender.com/api
+
+# Client URL
+CLIENT_URL=https://talenttrove.online
+
+# Google OAuth credentials
+GOOGLE_CLIENT_ID=<your_google_client_id>
+GOOGLE_CLIENT_SECRET=<your_google_client_secret>
+
+# MongoDB connection URI
+MONGO_URI=mongodb+srv://<your_mongo_username>:<your_mongo_password>@cluster0.f3o2udq.mongodb.net/TalentTrove
+
+# Email credentials
+EMAIL_USER=<your_email_address>
+EMAIL_PASS=<your_email_app_password>
+
+# JWT Access Token Secret
+ACCESS_TOKEN_SECRET=<your_access_token_secret>
 ```
 
 ### 4️⃣ Run the Project
