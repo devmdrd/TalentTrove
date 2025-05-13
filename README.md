@@ -52,7 +52,7 @@ npm run dev
 ### 3️⃣ Environment Variables
 Create `.env` files in server directory:
 
-#### Server `.env`:
+#### server `.env`:
 ```
 # Port
 PORT=3001
