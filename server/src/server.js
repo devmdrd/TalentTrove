@@ -39,6 +39,11 @@ app.use("/api", userRouter);
 app.use("/api/company", recruiterRouter);
 app.use("/api/admin", adminRouter);
 
+// ✅ Health check route
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).send("Something went wrong!");
