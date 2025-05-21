@@ -13,7 +13,7 @@ const SigninForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [credentials, setCredentials] = useState({ email: "admin@talenttrove.com", password: "Admin@123" });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 

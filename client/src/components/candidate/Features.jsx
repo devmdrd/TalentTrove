@@ -1,81 +1,91 @@
 import React from "react";
-import { FaSearch, FaUserAlt, FaCheckCircle } from "react-icons/fa";
+import { FiSearch, FiBriefcase, FiDollarSign, FiCheckCircle, FiUser } from "react-icons/fi";
+import { motion } from "framer-motion";
 
 function Features() {
+  const features = [
+    {
+      icon: <FiSearch className="text-2xl" />,
+      title: "Smart Job Matching",
+      description: "Our AI-powered system matches your skills and preferences with the perfect job opportunities.",
+    },
+    {
+      icon: <FiCheckCircle className="text-2xl" />,
+      title: "Verified Employers",
+      description: "We vet all employers to ensure you're applying to legitimate opportunities.",
+    },
+    {
+      icon: <FiUser className="text-2xl" />,
+      title: "Profile Visibility",
+      description: "Let recruiters find you with our premium profile visibility options.",
+    },
+  ];
+
   return (
-    <section className="rounded-xl ">
-      <div className="container px-6 py-10 mx-auto">
-        <div className="lg:flex lg:items-center">
-          <div className="w-full space-y-12 lg:w-1/2 ">
-            <div>
-              <h1 className="text-2xl font-semibold text-gray-800 capitalize lg:text-3xl ">
-                explore our <br /> Job portal Find your next Dream job
-              </h1>
-              <div className="mt-2">
-                <span className="inline-block w-40 h-1 bg-blue-500 rounded-full" />
-                <span className="inline-block w-3 h-1 ml-1 bg-blue-500 rounded-full" />
-                <span className="inline-block w-1 h-1 ml-1 bg-blue-500 rounded-full" />
+    <section className="py-16 sm:py-24 bg-white">
+      <div className="container px-6 py-10 mx-auto max-w-7xl">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="text-center mb-16"
+        >
+          <h1 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+            Powerful Tools For Your <span className="text-blue-600">Job Search</span>
+          </h1>
+          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            Everything you need to find, apply, and land your dream job.
+          </p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 gap-8 mt-8 md:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="p-8 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+            >
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-blue-50 text-blue-600 mb-6">
+                {feature.icon}
               </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          viewport={{ once: true }}
+          className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 md:p-12"
+        >
+          <div className="flex flex-col md:flex-row items-center">
+            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                Ready to accelerate your career?
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Create your free profile and get matched with top employers in your field.
+              </p>
+              <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                Get Started - It's Free
+              </button>
             </div>
-            <div className="md:flex md:items-start md:-mx-4">
-              <span className="inline-block p-2 text-blue-500 bg-blue-100 rounded-xl md:mx-4">
-                <FaSearch className="text-2xl" />
-              </span>
-              <div className="mt-4 md:mx-4 md:mt-0">
-                <h1 className="text-xl font-semibold text-gray-700 capitalize ">
-                  Search & Filter Jobs
-                </h1>
-                <p className="mt-3 text-gray-500 ">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident ab nulla quod dignissimos vel non corrupti doloribus
-                  voluptatum eveniet
-                </p>
-              </div>
-            </div>
-            <div className="md:flex md:items-start md:-mx-4">
-              <span className="inline-block p-2 text-blue-500 bg-blue-100 rounded-xl md:mx-4">
-                <FaUserAlt className="text-2xl" />
-              </span>
-              <div className="mt-4 md:mx-4 md:mt-0">
-                <h1 className="text-xl font-semibold text-gray-700 capitalize ">
-                  Zero Fees
-                </h1>
-                <p className="mt-3 text-gray-500 ">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident ab nulla quod dignissimos vel non corrupti doloribus
-                  voluptatum eveniet
-                </p>
-              </div>
-            </div>
-            <div className="md:flex md:items-start md:-mx-4">
-              <span className="inline-block p-2 text-blue-500 bg-blue-100 rounded-xl md:mx-4">
-                <FaCheckCircle className="text-2xl" />
-              </span>
-              <div className="mt-4 md:mx-4 md:mt-0">
-                <h1 className="text-xl font-semibold text-gray-700 capitalize ">
-                  verified recruiters
-                </h1>
-                <p className="mt-3 text-gray-500 ">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Provident ab nulla quod dignissimos vel non corrupti doloribus
-                  voluptatum eveniet
-                </p>
-              </div>
+            <div className="md:w-1/2">
+              <img 
+                src="https://res.cloudinary.com/dprxebwil/image/upload/v1681571472/9365666_4149593_oovvzj.jpg" 
+                alt="Career growth" 
+                className="rounded-lg shadow-md w-full h-auto"
+              />
             </div>
           </div>
-          <div className="hidden lg:flex lg:items-center lg:w-1/2 lg:justify-center">
-            <img
-              className="w-[28rem] h-[28rem] object-cover xl:w-[34rem] xl:h-[34rem] rounded-full"
-              src="https://res.cloudinary.com/dprxebwil/image/upload/v1681571472/9365666_4149593_oovvzj.jpg"
-              alt=""
-            />
-          </div>
-        </div>
-        <hr className="my-12 border-gray-200 " />
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-6 lg:grid-cols-5">
-          <div className="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1"></div>
-          <div className="flex items-center justify-center col-span-1 md:col-span-2 lg:col-span-1"></div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

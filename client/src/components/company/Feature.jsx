@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiBriefcase, FiCheckCircle, FiBarChart2, FiArrowRight } from "react-icons/fi";
+import { FiBriefcase, FiUser, FiBarChart2, FiArrowRight } from "react-icons/fi";
 
 function Feature() {
   return (
@@ -35,16 +35,16 @@ function Feature() {
 
           <div className="transition ease-in-out delay-100 hover:-translate-y-1 hover:scale-100 duration-150 p-8 space-y-3 border-2 cursor-pointer border-blue-400 rounded-xl">
             <span className="inline-block text-blue-500 text-3xl">
-              <FiCheckCircle />
+              <FiUser />
             </span>
             <h1 className="text-xl font-semibold text-gray-700 capitalize">
-              Accepted Applications
+              Manage Profile
             </h1>
             <p className="text-gray-500">
-              View and manage all the applications you've shortlisted and moved forward in the hiring process.
+              View and update your company profile to showcase your brand and attract top talent.
             </p>
             <Link
-              to={"/company/applications"}
+              to={"/company/profile"}
               className="inline-flex p-2 text-blue-500 capitalize transition-colors duration-300 transform bg-blue-100 rounded-full rtl:-scale-x-100 hover:underline hover:text-blue-600"
             >
               <FiArrowRight className="w-6 h-6" />

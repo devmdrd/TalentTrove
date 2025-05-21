@@ -19,7 +19,7 @@ const Signin = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
 
-  const [credentials, setCredentials] = useState({ email: "", password: "" });
+  const [credentials, setCredentials] = useState({ email: "deloitte@yopmail.com", password: "Deloitte@123" });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
