@@ -107,20 +107,34 @@ const Home = () => {
           </div>
         </div>
         
-        <section className="bg-gradient-to-r from-blue-600 to-indigo-700 py-16 px-6">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-3xl font-bold mb-6">Ready to take the next step in your career?</h2>
-            <p className="text-lg mb-8 opacity-90">Join thousands of professionals who found their dream jobs through us.</p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <a href={!isAuthenticated ? "/signin" : "/profile"} className="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-                Upload Your Resume
-              </a>
-              <a href={!isAuthenticated ? "/signin" : "/jobs"} className="bg-transparent border-2 border-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:bg-opacity-10 transition-colors">
-                Browse Jobs
-              </a>
+        {isAuthenticated && (
+          <section className="bg-gradient-to-br from-blue-100 via-indigo-100 to-purple-100 py-20 px-6">
+            <div className="max-w-4xl mx-auto text-center text-gray-800">
+              <div className="bg-white/70 backdrop-blur-md p-10 rounded-2xl shadow-xl">
+                <h2 className="text-4xl font-extrabold mb-6 leading-tight tracking-tight">
+                  Ready to take the next step in your career?
+                </h2>
+                <p className="text-lg mb-10 text-gray-700">
+                  Join thousands of professionals who found their dream jobs through us.
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
+                  <a
+                    href={!isAuthenticated ? "/signin" : "/profile"}
+                    className="bg-indigo-600 text-white px-8 py-3 rounded-xl font-semibold shadow-md hover:bg-indigo-700 transition-all duration-300"
+                  >
+                    Upload Your Resume
+                  </a>
+                  <a
+                    href={!isAuthenticated ? "/signin" : "/jobs"}
+                    className="border-2 border-indigo-600 text-indigo-600 px-8 py-3 rounded-xl font-semibold hover:bg-indigo-50 transition-all duration-300"
+                  >
+                    Browse Jobs
+                  </a>
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
         
         <Footer />
       </div>
